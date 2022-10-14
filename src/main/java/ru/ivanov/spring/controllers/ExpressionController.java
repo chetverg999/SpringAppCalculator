@@ -86,9 +86,4 @@ public class ExpressionController {
         return "redirect:/expression/answer";
     }
 
-    @ExceptionHandler(value = {IOException.class, SQLException.class})
-    public String exp(@ModelAttribute ("exception") Exception ex) {
-        return "expression/new";
-    }
-
 }
