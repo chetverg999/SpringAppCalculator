@@ -49,7 +49,7 @@ public class LogicAnalysis {
                     continue;
                 default:
                     if (c != ' ') { // если там не пробел, то это ошибка синтаксиса
-                        throw new RuntimeException("Ошибка синтаксиса: неизвестный символ " + c);
+                        throw new RuntimeException("Syntax error: unknown character " + c);
                     }
                     pos++;  // пропускаем пробелы
             }
@@ -77,7 +77,7 @@ public class LogicAnalysis {
                 boolean value = orXor(list); // проверяем наличие действий в скобках
                 symbol = list.next(); // проверка правой скобки
                 if (symbol.type != CharacterType.RIGHT_BRACKET) {
-                    throw new RuntimeException("Unexpected token: " + list.getPos());
+                    throw new RuntimeException("Syntax error: invalid character under the number " + list.getPos());
                 }
                 return value; // возвращаем результат из скобок
 
@@ -87,7 +87,7 @@ public class LogicAnalysis {
                 return false; // возвращаем просто число если нет скобок
 
             default:
-                throw new RuntimeException("Unexpected token: " + list.getPos()); // любой другой случай
+                throw new RuntimeException("Syntax error: invalid character under the number " + list.getPos()); // любой другой случай
         }
     }
 
@@ -112,7 +112,7 @@ public class LogicAnalysis {
                     return value;
 
                 default:
-                    throw new RuntimeException("Unexpected token: " + list.getPos()); // любой другой случай
+                    throw new RuntimeException("Syntax error: invalid character under the number " + list.getPos()); // любой другой случай
             }
         }
     }
@@ -136,7 +136,7 @@ public class LogicAnalysis {
                     return value;
 
                 default:
-                    throw new RuntimeException("Unexpected token: " + list.getPos()); // любой другой случай
+                    throw new RuntimeException("Syntax error: invalid character under the number " + list.getPos()); // любой другой случай
             }
         }
     }

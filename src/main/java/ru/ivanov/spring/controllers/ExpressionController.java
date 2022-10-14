@@ -6,13 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import ru.ivanov.spring.calculator.Answer;
 import ru.ivanov.spring.dao.ExpressionDAO;
 import ru.ivanov.spring.models.Expression;
 import ru.ivanov.spring.models.LogicExpression;
+
 import javax.validation.Valid;
-import java.io.IOException;
-import java.sql.SQLException;
+
 
 /**
  * @author Ivanov Alexandr on 06.10.2022
@@ -86,4 +87,10 @@ public class ExpressionController {
         return "redirect:/expression/answer";
     }
 
+        @ExceptionHandler(RuntimeException.class)
+    public ModelAndView handleIOException(RuntimeException exception) {
+        ModelAndView modelAndView = new ModelAndView("/exception/catchedException");
+        modelAndView.addObject("message", exception.getMessage());
+        return modelAndView;
+    }
 }

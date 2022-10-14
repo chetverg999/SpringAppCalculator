@@ -65,7 +65,7 @@ public class LexicalAnalysis {
                         list.add(new Symbol(CharacterType.NUMBER, sb.toString()));  // записываем стрингбилдер как одно число
                     } else {
                         if (c != ' ') { // если там не пробел, то это ошибка синтаксиса
-                            throw new RuntimeException("Ошибка синтаксиса: неизвестный символ " + c);
+                            throw new RuntimeException("Syntax error: unknown character " + c);
                         }
                         pos++;  // пропускаем пробелы
                     }
@@ -95,7 +95,7 @@ public class LexicalAnalysis {
                 int value = plusMinus(list); // проверяем наличие действий в скобках (умножение и деление)
                 symbol = list.next(); // проверка правой скобки
                 if (symbol.type != CharacterType.RIGHT_BRACKET) {
-                    throw new RuntimeException("Unexpected token: " + list.getPos());
+                    throw new RuntimeException("Syntax error: invalid character under the number " + list.getPos());
                 }
                 return value; // возвращаем результат из скобок
 
@@ -103,7 +103,7 @@ public class LexicalAnalysis {
                 return Integer.parseInt(symbol.value); // возвращаем просто число если нет скобок
 
             default:
-                throw new RuntimeException("Unexpected token: " + list.getPos()); // любой другой случай
+                throw new RuntimeException("Syntax error: invalid character under the number " + list.getPos()); // любой другой случай
         }
     }
 
@@ -128,7 +128,7 @@ public class LexicalAnalysis {
                     return value;
 
                 default:
-                    throw new RuntimeException("Unexpected token: " + list.getPos()); // любой другой случай
+                    throw new RuntimeException("Syntax error: invalid character under the number " + list.getPos()); // любой другой случай
             }
         }
     }
@@ -155,7 +155,7 @@ public class LexicalAnalysis {
                     return value;
 
                 default:
-                    throw new RuntimeException("Unexpected token: " + list.getPos()); // любой другой случай
+                    throw new RuntimeException("Syntax error: invalid character under the number " + list.getPos()); // любой другой случай
             }
         }
     }
@@ -182,7 +182,7 @@ public class LexicalAnalysis {
                     return value;
 
                 default:
-                    throw new RuntimeException("Unexpected token: " + list.getPos()); // любой другой случай
+                    throw new RuntimeException("Syntax error: invalid character under the number " + list.getPos()); // любой другой случай
             }
         }
     }
