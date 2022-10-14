@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Answer</title>
+</head>
+<body>
+<a href="/expression/new"> Click to calculator </a>
+<p> </p>
+<a> All answers: </a>
+<div th:each="answerList : ${answerModel}">
+    <a th:text="${answerList.toString()}">expression</a>
+</div>
+<p> </p>
+<a> All logic answers: </a>
+<div th:each="logicAnswerList : ${logicAnswerModel}">
+    <a th:text="${logicAnswerList.toString()}">expression</a>
+</div>
+<p> </p>
+<a> Answer for last question: </a>
+    <a th:text="${lastAnswerModel}">expression</a>
+<p> </p>
+<a> Answer for last logic question: </a>
+<a th:text="${lastLogicAnswerModel}">expression</a>
+</body>
+</html>

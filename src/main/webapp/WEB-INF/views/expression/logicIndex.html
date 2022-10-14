@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+</head>
+<body>
+<a href="/expression/new"> Click to calculator </a>
+<div th:each="logicExampleList : ${expressionDAOmodel}">
+  <a th:text="${logicExampleList.getLogicEx()}">expression</a>
+</div>
+
+</body>
+</html>
