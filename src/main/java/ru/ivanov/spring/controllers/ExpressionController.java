@@ -11,6 +11,8 @@ import ru.ivanov.spring.dao.ExpressionDAO;
 import ru.ivanov.spring.models.Expression;
 import ru.ivanov.spring.models.LogicExpression;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * @author Ivanov Alexandr on 06.10.2022
@@ -82,6 +84,11 @@ public class ExpressionController {
         System.out.println(logicExpression.toString());
         answer.logicAnswer();
         return "redirect:/expression/answer";
+    }
+
+    @ExceptionHandler(value = {IOException.class, SQLException.class})
+    public String exp(@ModelAttribute ("exception") Exception ex) {
+        return "expression/new";
     }
 
 }
