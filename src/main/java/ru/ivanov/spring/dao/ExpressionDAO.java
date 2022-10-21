@@ -11,6 +11,7 @@ import java.util.List;
  */
 
 @Component
+
 public class ExpressionDAO {
     private List<Expression> exampleList;
     private List<LogicExpression> logicExampleList;
