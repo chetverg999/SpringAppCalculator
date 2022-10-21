@@ -1,26 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="ru" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Answer</title>
+    <link rel="stylesheet" href="/resources/css/answerStyle.css" type="text/css">
 </head>
 <body>
-<a href="/expression/new"> Click to calculator </a>
-<p> </p>
-<a> All answers: </a>
-<div th:each="answerList : ${answerModel}">
-    <a th:text="${answerList.toString()}">expression</a>
-</div>
-<p> </p>
-<a> All logic answers: </a>
-<div th:each="logicAnswerList : ${logicAnswerModel}">
-    <a th:text="${logicAnswerList.toString()}">expression</a>
-</div>
-<p> </p>
-<a> Answer for last question: </a>
-    <a th:text="${lastAnswerModel}">expression</a>
-<p> </p>
-<a> Answer for last logic question: </a>
-<a th:text="${lastLogicAnswerModel}">expression</a>
+<a class="blocktext" href="/expression/new"> Click to calculator </a>
+
+<form class="decor">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+        <h3>All answers</h3>
+        <a class="blocktext" th:each="answerList : ${answerModel}"
+           th:text="${answerList.toString()}">expression</a>
+        <p> </p>
+        <h3> Answer for last question: </h3>
+        <a class="blocktext" th:text="${lastAnswerModel}">expression</a>
+    </div>
+</form>
+
+<form class="decor">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+        <h3>All answers</h3>
+        <a class="blocktext" th:each="logicAnswerList : ${logicAnswerModel}"
+        th:text="${logicAnswerList.toString()}">expression</a>
+        <p> </p>
+        <h3> Answer for last logic question: </h3>
+        <a class="blocktext" th:text="${lastLogicAnswerModel}">expression</a>
+    </div>
+</form>
+
 </body>
 </html>

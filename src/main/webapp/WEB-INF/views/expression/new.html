@@ -12,10 +12,10 @@
   <div class="form-right-decoration"></div>
   <div class="circle"></div>
   <div class="form-inner">
-    <h3>Введите арифметическое выражение</h3>
+    <h3>Enter an arithmetic expression</h3>
     <div style="text-align:center; color:red" th:if="${#fields.hasErrors('ex')}" th:errors="*{ex}">Error</div>
     <input type="text" th:field="*{ex}" placeholder="2+2">
-    <input type="submit" value="Отправить">
+    <input type="submit" value="Send">
   </div>
 </form>
 
@@ -24,11 +24,11 @@
   <div class="form-right-decoration"></div>
   <div class="circle"></div>
   <div class="form-inner">
-    <h3>Введите логическое выражение</h3>
+    <h3>Enter a Boolean expression</h3>
     <div style="text-align:center; color:red" th:if="${#fields.hasErrors('logicEx')}" th:errors="*{logicEx}">Error</div>
-    <h3>Используемые обозначения: xor - @, and - &, or - |, true - t, false - f</h3>
+    <h3>Notation used: xor - @, and - &, or - |, true - t, false - f</h3>
     <input type="text" th:field="*{logicEx}" placeholder="t&f">
-    <input type="submit" value="Отправить">
+    <input type="submit" value="Send">
   </div>
 </form>
 
