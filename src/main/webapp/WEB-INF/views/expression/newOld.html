@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <title>New</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/expression/lexic}" th:object="${personalExample}">
+    <!--    <form th:method="POST"(метод пост запроса)
+    th:action="@{/people}"(отправка формы отправит POST запрос на /people)
+    th:object="${person}" (имя модели с которой тянутся поля и методы)>-->
+    <div style="text-align:center;">
+        <label for="name">Enter lexic: </label>
+        <input type="text" th:field="*{ex}" id="name"/>
+        <div style="text-align:center; color:red" th:if="${#fields.hasErrors('ex')}" th:errors="*{ex}">Error</div>
+        <br/>
+        <input type="submit" value="Create!"/>
+        <p></p>
+    </div>
+</form>
+
+<form th:method="POST" th:action="@{/expression/logic}" th:object="${logicExampleListModel}">
+    <div style="text-align:center;">
+        <label for="logic">Enter logic: </label>
+        <input type="text" th:field="*{logicEx}" id="logic"/>
+        <div style="text-align:center; color:red" th:if="${#fields.hasErrors('logicEx')}" th:errors="*{logicEx}">Error
+        </div>
+        <br/>
+        <input type="submit" value="Create!"/>
+    </div>
+</form>
+
+</body>
+</html>
